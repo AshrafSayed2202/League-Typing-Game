@@ -9,15 +9,16 @@ let timeLeftSpan = document.querySelector(".time span");
 let scoreGot = document.querySelector(".score .got");
 let scoreTotal = document.querySelector(".score .total");
 let finishMessage = document.querySelector(".finish");
-let span = document.querySelector(".finish .span");;
-
+let span = document.querySelector(".finish .span");
+let theIcon = document.querySelector(".the-icon img");
+let chosenLevel
 let levelSeconds;
 let levelName;
 let spanText;
 let wordsGroup = document.querySelector(".words-group select");
 const words = [];
-wordsGroup.addEventListener("change",(e) =>{
-    let chosenLevel = wordsGroup.value;
+wordsGroup.addEventListener("change",function (e){
+    chosenLevel = wordsGroup.value;
     words.splice(0,words.length);
     if(chosenLevel == "champs"){
         words.push("Aatrox","Ahri","Akali","Akshan","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","Aurelion Sol","Azir","Bard","Bel'Veth","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","Cho'Gath","Corki","Darius","Diana","Dr.Mundo","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Gwen","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan IV","Jax","Jayce","Jhin","Jinx","Kai'Sa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","Kha'Zix","Kindred","Kled","Kog'Maw","Leblanc","Lee Sin","Leona","Lillia","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","Master Yi","Miss Fortune","Mordekaiser","Morgana","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu & Willump","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","Rek'Sai","Rell","Renata Glasc","Renekton","Rengar","Riven","Rumble","Ryze","Samira","Sejuani","Senna","Seraphine","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","Tahm Kench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","Twisted Fate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Vel'Koz","Vex","VI","Veigo","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","Xin Zhao","Yasuo","Yone","Yoric","Yuumi","Zac","Zed","Zeri","Ziggs","Zilean","Zoe","Zyra")
@@ -34,7 +35,9 @@ wordsGroup.addEventListener("change",(e) =>{
     }
     scoreTotal.innerHTML = words.length;
 })
-
+// if(theIcon.src = "unknown"){
+//     theIcon.style.display = "none"
+// }
 // Setting Levels
 var lvls = {
     "Easy": 5,
@@ -59,7 +62,9 @@ input.onpaste = function () {
 
 // Start Game
 startButton.onclick = function () {
+    scoreGot.innerHTML = 0;
     theWord.innerHTML = '';
+    levelSeconds = lvls[levelName]
     if(levelSelector.value == 0||wordsGroup.value == 0){
         theWord.innerHTML = 'Please select Difficulty and Words Group';
         return;
@@ -79,6 +84,9 @@ let wordIndex = words.indexOf(randomWord);
 words.splice(wordIndex, 1);
 // Show The Random Word
 theWord.innerHTML = randomWord;
+// Show the Icon
+theIcon.src = `icons\\${chosenLevel}\\${theWord.innerHTML}.webp`;
+console.log(theIcon);
 // Empty Upcoming Words
 upcomingWords.innerHTML = '';
 // Generate Words
@@ -96,6 +104,7 @@ startPlay();
 }
 
 function startPlay() {
+    input.value = '';
     span.innerHTML = 'in Game';
     span.classList.remove("bad","good")
     let start = setInterval(() => {

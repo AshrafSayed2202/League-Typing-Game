@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="css\main.css">
     <title>League | Typing game</title>
     <link rel="icon" href="https://www.leagueoflegends.com//static/favicon-0cf29ce019f7cd1e7b24f85ab6ff97da.ico">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="game">
@@ -40,8 +44,11 @@
             </div>
             <div class="start">Start Playing</div>
             <div class="the-word"></div>
+            <div class="the-icon">
+                <img src="unknown" alt="">
+            </div>
             <input type="text" class="input" />
-            <div class="upcoming-words">Words Will Show Here</div>
+            <div class="upcoming-words">Upcoming Words Will Show Here</div>
             <div class="control">
                 <div class="time">Time Left: <span></span> Seconds</div>
                 <div class="score">
@@ -55,6 +62,11 @@
             </div>
         </div>
     </div>
-<script src="main.js"></script>
+    <footer>
+        <div class="container">
+            <p>© 2022 - <span><a href="https://www.facebook.com/ashraf.tenshi" target="_blank">Ashraf.S Fawzi</a></span>, All Rights Reserved</p>
+        </div>
+    </footer>
+<script src="js\main.js"></script>
 </body>
 </html>
