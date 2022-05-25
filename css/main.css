@@ -8,10 +8,22 @@
 }
 body {
     font-family: "Open Sans", sans-serif;
+    background-color: #eee;
 }
 .game {
-    background-color: #eee;
     min-height: calc(100vh - 62px);
+}
+.figure{
+    position: fixed;
+    width: 750px;
+    z-index: -1;
+}
+.yasuo{
+    right: -5%;
+    top: -5%;
+}
+.akali{
+
 }
 .container {
     margin: auto;
@@ -54,7 +66,11 @@ body {
 .message span::after {
     content: " ]";
 }
+.buttons{
+    display: flex;
+}
 .start {
+    flex: 1;
     font-size: 20px;
     font-weight: bold;
     text-align: center;
@@ -62,6 +78,22 @@ body {
     color: white;
     padding: 20px;
     cursor: pointer;
+    transition: 0.2s;
+}
+.start:hover{
+    background-color: #495e69;
+}
+.reset{
+    color: white;
+    cursor: pointer;
+    padding: 20px;
+    background-color: red;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: 0.2s;
+}
+.reset:hover{
+    background-color: rgb(167, 2, 2);
 }
 .the-word {
     text-align: center;

@@ -11,6 +11,7 @@ let scoreTotal = document.querySelector(".score .total");
 let finishMessage = document.querySelector(".finish");
 let span = document.querySelector(".finish .span");
 let theIcon = document.querySelector(".the-icon img");
+let reset = document.querySelector(".reset");
 let chosenLevel
 let levelSeconds;
 let levelName;
@@ -35,6 +36,9 @@ wordsGroup.addEventListener("change",function (e){
     }
     scoreTotal.innerHTML = words.length;
 })
+reset.onclick = function(){
+    window.location.reload();
+}
 // if(theIcon.src = "unknown"){
 //     theIcon.style.display = "none"
 // }
