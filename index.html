@@ -12,6 +12,27 @@
     <div class="game">
         <div class="name">League | Typing game</div>
         <div class="container">
+            <div class="options">
+                <div class="difficulty">
+                    <select name="difficultys" id="difficultys-select">
+                        <option value="0">Select Difficulty</option>
+                        <option value="Easy">Easy</option>
+                        <option value="Normal">Normal</option>
+                        <option value="Hard">Hard</option>
+                    </select>
+                </div>
+                <div class="words-group">
+                    <select name="words-group" id="Words-Type">
+                        <option value="0">Select Words Group</option>
+                        <option value="champs">Champions</option>
+                        <option value="starter-items">Starter Items</option>
+                        <option value="basic-items">Basic Items</option>
+                        <option value="epic-items">Epic Items</option>
+                        <option value="legendary-items">Legendary Items</option>
+                        <option value="mythic-items">Mythic Items</option>
+                    </select>
+                </div>
+            </div>
             <div class="message">
                 You Are Playing On
                 <span class="lvl"></span> Level
@@ -27,7 +48,11 @@
                     Score: <span class="got">0</span> From <span class="total"></span>
                 </div>
             </div>
-            <div class="finish"></div>
+            <div class="finish">
+                <span class="span">
+
+                </span>
+            </div>
         </div>
     </div>
 <script src="main.js"></script>
