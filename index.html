@@ -11,12 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Web Fonts -->
+    <link rel="stylesheet" href="css\all.min.css">
 </head>
 <body>
     <div class="game">
         <img src="images\Akali.png" alt="Akali Figure" title="Akali Figure" class="figure akali">
         <img src="images\Yasuo.png" alt="Yasuo Figure" title="Yasuo Figure" class="figure yasuo">
-        <div class="name">League | Typing game</div>
+        <div class="name">League of Legends | Typing game</div>
         <div class="container">
             <div class="options">
                 <div class="difficulty">
@@ -25,6 +27,13 @@
                         <option value="Easy">Easy</option>
                         <option value="Normal">Normal</option>
                         <option value="Hard">Hard</option>
+                    </select>
+                </div>
+                <div class="mode">
+                    <select name="modes" id="game-modes">
+                        <option value="0">Select Game Mode</option>
+                        <option value="standard" style="font-weight:bold;">Standard Mode</option>
+                        <option value="fast">Fast Mode</option>
                     </select>
                 </div>
                 <div class="words-group">
@@ -42,7 +51,7 @@
             <div class="message">
                 You Are Playing On
                 <span class="lvl"></span> Level
-                & You Have <span class="seconds"></span> Seconds To Type The Word
+                & You Have <span class="seconds"></span> Seconds To Type Each Word
             </div>
             <div class="buttons">
                 <div class="start">Start Playing</div>

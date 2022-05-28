@@ -12,6 +12,8 @@ let finishMessage = document.querySelector(".finish");
 let span = document.querySelector(".finish .span");
 let theIcon = document.querySelector(".the-icon img");
 let reset = document.querySelector(".reset");
+let levelSelector = document.querySelector(".difficulty select");
+let gameMode = document.querySelector(".mode select");
 let chosenLevel
 let levelSeconds;
 let levelName;
@@ -39,27 +41,25 @@ wordsGroup.addEventListener("change",function (e){
 reset.onclick = function(){
     window.location.reload();
 }
-// if(theIcon.src = "unknown"){
-//     theIcon.style.display = "none"
-// }
-// Setting Levels
 var lvls = {
     "Easy": 7,
     "Normal": 5,
     "Hard": 5
 };
-
-//Level
-let levelSelector = document.querySelector(".difficulty select");
 levelSelector.addEventListener("change",(e)=>{
     levelName = levelSelector.value;
     levelSeconds = lvls[levelName];
     levelName = levelSelector.value;
     lvlNameSpan.innerHTML = levelName;
     secondsSpan.innerHTML = levelSeconds;
-    timeLeftSpan.innerHTML = levelSeconds*(words.length);
 })
-// Disable Paste Event
+gameMode.addEventListener("change",function (e){
+    if(gameMode.value == "standard"){
+        timeLeftSpan.innerHTML = levelSeconds*(words.length);
+    }else if(gameMode.value == "fast"){
+        timeLeftSpan.innerHTML = levelSeconds;
+    }
+})
 input.onpaste = function () {
     return false;
 }
@@ -69,42 +69,31 @@ startButton.onclick = function () {
     scoreGot.innerHTML = 0;
     theWord.innerHTML = '';
     levelSeconds = lvls[levelName]*(words.length);
-    if(levelSelector.value == 0||wordsGroup.value == 0){
-        theWord.innerHTML = 'Please select Difficulty and Words Group';
+    if(levelSelector.value == 0||wordsGroup.value == 0||gameMode.value == 0){
+        theWord.innerHTML = 'Please select Difficulty,Game Mode and Words Group';
         return;
     }
-    // this.remove();
     input.focus();
-    // Generate Word Function
     genWords();
 }
 
 function genWords() {
-// Get Random Word From Array
 let randomWord = words[Math.floor(Math.random() * words.length)];
-// Get Word Index
 let wordIndex = words.indexOf(randomWord);
-// Remove WordFrom Array
 words.splice(wordIndex, 1);
-// Show The Random Word
 theWord.innerHTML = randomWord;
 if(levelName == "Hard"){
     theWord.style.display = "none";
 }
-// Show the Icon
 theIcon.src = `icons\\${chosenLevel}\\${theWord.innerHTML}.webp`;
 console.log(theIcon);
-// Empty Upcoming Words
 upcomingWords.innerHTML = '';
-// Generate Words
 for (let i = 0; i < words.length; i++) {
-// Create Div Element
 let div = document.createElement("div");
 let txt = document.createTextNode(words[i]);
 div.appendChild(txt);
 upcomingWords.appendChild(div);
 }
-// Call Start Play Function
 startPlay();
 }
 function startPlay() {
@@ -113,21 +102,15 @@ function startPlay() {
     span.classList.remove("bad","good")
     let start = setInterval(() => {
 if (levelSeconds == 0 || theWord.innerHTML.toLowerCase() === input.value.toLowerCase()) {
-    // Stop Timer
     clearInterval(start);
-    // Compare Words
     if (theWord.innerHTML.toLowerCase() === input.value.toLowerCase()) {
-        // Empty Input Field
         input.value = '';
-        // Increase Score
         scoreGot.innerHTML++;
         if (words.length > 0) {
-            // Call Generate Word Function
             genWords();
         } else {
             span.className = 'good';
             span.innerHTML = `Conrgatulation! you achived ${scoreGot.innerHTML * 100 / scoreTotal.innerHTML}% on ${levelName} difficulty ${wordsGroup.value} Group`;
-            // Remove Upcoming Words Box
             upcomingWords.remove();
         }
         } else {
