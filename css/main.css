@@ -32,6 +32,7 @@ body {
 }
 .name {
     background-color: var(--main-color);
+    text-shadow: 2px 2px 8px black;
     color: white;
     padding: 20px;
     font-size: 25px;
@@ -97,6 +98,7 @@ body {
     background-color: rgb(167, 2, 2);
 }
 .the-word {
+    text-shadow: 2px 2px 8px black;
     text-align: center;
     font-weight: bold;
     font-size: 60px;
