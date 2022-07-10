@@ -27,7 +27,7 @@ wordsGroup.addEventListener("change", function (e) {
     if(chosenLevel == "champions"){
         words.push("Aatrox","Ahri","Akali","Akshan","Alistar","Amumu","Anivia","Annie","Aphelios","Ashe","Aurelion Sol","Azir","Bard","Bel'Veth","Blitzcrank","Brand","Braum","Caitlyn","Camille","Cassiopeia","Cho'Gath","Corki","Darius","Diana","Dr.Mundo","Draven","Ekko","Elise","Evelynn","Ezreal","Fiddlesticks","Fiora","Fizz","Galio","Gangplank","Garen","Gnar","Gragas","Graves","Gwen","Hecarim","Heimerdinger","Illaoi","Irelia","Ivern","Janna","Jarvan IV","Jax","Jayce","Jhin","Jinx","Kai'Sa","Kalista","Karma","Karthus","Kassadin","Katarina","Kayle","Kayn","Kennen","Kha'Zix","Kindred","Kled","Kog'Maw","LeBlanc","Lee Sin","Leona","Lillia","Lissandra","Lucian","Lulu","Lux","Malphite","Malzahar","Maokai","Master Yi","Miss Fortune","Mordekaiser","Morgana","Nami","Nasus","Nautilus","Neeko","Nidalee","Nocturne","Nunu and Willump","Olaf","Orianna","Ornn","Pantheon","Poppy","Pyke","Qiyana","Quinn","Rakan","Rammus","Rek'Sai","Rell","Renata Glasc","Renekton","Rengar","Riven","Rumble","Ryze","Samira","Sejuani","Senna","Seraphine","Sett","Shaco","Shen","Shyvana","Singed","Sion","Sivir","Skarner","Sona","Soraka","Swain","Sylas","Syndra","Tahm Kench","Taliyah","Talon","Taric","Teemo","Thresh","Tristana","Trundle","Tryndamere","Twisted Fate","Twitch","Udyr","Urgot","Varus","Vayne","Veigar","Vel'Koz","Vex","VI","Viego","Viktor","Vladimir","Volibear","Warwick","Wukong","Xayah","Xerath","Xin Zhao","Yasuo","Yone","Yorick","Yuumi","Zac","Zed","Zeri","Ziggs","Zilean","Zoe","Zyra")
     }else if(chosenLevel == "starter-items"){
-        words.push("Cull","Dark Seal","Doran's Blade","Doran's Ring","Doran's Shield","Emberknife","Guardian's Blade","Guardian's Hammer","Guardian's Horn","Guardian's Orb","Hailblade","Relic Shield","Spectral Sickle","Spellthief's Edge","Steel Shoulderguards","Tear of the Goddess","Control Ward","Corrupting Potion","Elixir of Iron","Elixir of Sorcery","Elixir of Wrath","Health Potion","Refillable Potion","Farsight Alteration","Oracle Lens","Stealth Ward","Berserker's Greaves","Boots","Boots of Swiftness","Ionian Boots of lucidity","Mercury's Treads","Mobility Boots","Plated Steelcaps","Sorcerer's Shoes");
+        words.push("Cull","Dark Seal","Doran's Blade","Doran's Ring","Doran's Shield","Emberknife","Guardian's Blade","Guardian's Hammer","Guardian's Horn","Guardian's Orb","Hailblade","Relic Shield","Spectral Sickle","Spellthief's Edge","Steel Shoulderguards","Tear of the Goddess","Control Ward","Corrupting Potion","Elixir of Iron","Elixir of Sorcery","Elixir of Wrath","Health Potion","Refillable Potion","Farsight Alteration","Oracle Lens","Stealth Ward","Berserker's Greaves","Boots","Boots of Swiftness","Ionian Boots of Lucidity","Mercury's Treads","Mobility Boots","Plated Steelcaps","Sorcerer's Shoes");
     }else if(chosenLevel == "basic-items"){
         words.push("Amplifying Tome","B.F.Sword","Blasting Wand","Stopwatch","Cloak of Agility","Cloth Armor","Dagger","Faerie Charm","Long Sword","Needlessly Large Rod","Null-Magic Mantle","Pickaxe","Rejuvenation Bead","Ruby Crystal","Sapphire Crystal","Sheen")
     }else if(chosenLevel == "epic-items"){
@@ -79,13 +79,13 @@ function genWords() {
     if(gameMode.value = "fast"){
         levelSeconds = lvls[levelName];
     }
+    if (levelName == "Hard") {
+        theWord.style.display = "none";
+    }
     let randomWord = words[Math.floor(Math.random() * words.length)];
     let wordIndex = words.indexOf(randomWord);
     words.splice(wordIndex, 1);
     theWord.innerHTML = randomWord;
-    if (levelName == "Hard") {
-        theWord.style.display = "none";
-    }
     theIcon.src = `icons\\${chosenLevel}\\${theWord.innerHTML}.webp`;
     upcomingWords.innerHTML = '';
     for (let i = 0; i < words.length; i++) {
