@@ -22,7 +22,7 @@
         <div class="container">
             <div class="options">
                 <div class="difficulty">
-                    <select name="difficultys" id="difficultys-select">
+                    <select name="difficultys" id="difficultys-select" title="difficultys">
                         <option value="0">Select Difficulty</option>
                         <option value="Easy">Easy</option>
                         <option value="Normal">Normal</option>
@@ -30,16 +30,16 @@
                     </select>
                 </div>
                 <div class="mode">
-                    <select name="modes" id="game-modes">
+                    <select name="modes" id="game-modes" title="modes">
                         <option value="0">Select Game Mode</option>
-                        <option value="standard" style="font-weight:bold;">Standard Mode</option>
+                        <option value=>Standard Mode</option>
                         <option value="fast">Fast Mode</option>
                     </select>
                 </div>
                 <div class="words-group">
-                    <select name="words-group" id="Words-Type">
+                    <select name="words-group" id="Words-Type" title="words-group">
                         <option value="0">Select Words Group</option>
-                        <option value="champions" style="font-weight:bold;">Champions</option>
+                        <option value="champions">Champions</option>
                         <option value="starter-items">Starter Items</option>
                         <option value="basic-items">Basic Items</option>
                         <option value="epic-items">Epic Items</option>
@@ -61,7 +61,7 @@
                 <img src="unknown" alt="">
             </div>
             <div class="the-word"></div>
-            <input type="text" class="input"/>
+            <input type="text" class="input" title="input"/>
             <div class="upcoming-words">Upcoming Words Will Show Here</div>
             <div class="control">
                 <div class="time">Time Left: <span>0</span> Seconds</div>
@@ -77,7 +77,7 @@
     </div>
     <footer>
         <div class="container">
-            <p>© 2022 - <span><a href="https://www.facebook.com/ashraf.tenshi" target="_blank">Ashraf.S Fawzi</a></span>, All Rights Reserved</p>
+            <p>© <span class="date"></span> - <span><a rel="noopener" href="https://www.facebook.com/ashraf.tenshi" target="_blank">Ashraf.S Fawzi</a></span>, All Rights Reserved</p>
         </div>
     </footer>
 <script src="js\main.js"></script>
