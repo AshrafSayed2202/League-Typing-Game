@@ -8,30 +8,36 @@
 }
 body {
     font-family: "Open Sans", sans-serif;
-    background-color: #eee;
+    background-color: #162d3b;
 }
 .game {
     min-height: calc(100vh - 62px);
-}
-.figure{
-    position: fixed;
-    width: 750px;
-    z-index: -1;
-}
-.yasuo{
-    right: -5%;
-    top: -5%;
-}
-.akali{
-    left: -5%;
-    top: -5%;
+    background: url(../images/background.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .container {
     margin: auto;
-    max-width: 900px;
+    width: 80%;
+}
+@media (min-width:768px) {
+    .container{
+        width: 80%;
+    }
+}
+@media (min-width:991px) {
+    .container{
+        width: 50%;
+    }
+}
+@media (min-width:1200px) {
+    .container{
+        width: 40%;
+    }
 }
 .name {
-    background-color: var(--main-color);
+    background-color: #009688;
     text-shadow: 2px 2px 8px black;
     color: white;
     padding: 20px;
@@ -97,6 +103,7 @@ body {
     transition: 0.2s;
     border-top-left-radius: 40px;
     border-bottom-left-radius: 40px;
+    border: none;
 }
 .start:hover{
     background-color: #495e69;

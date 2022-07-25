@@ -58,16 +58,17 @@ startButton.onclick = function() {
     scoreGot.innerHTML = 0;
     theWord.innerHTML = '';
     if (gameMode.value == "standard") {
-            levelSeconds = lvls[levelName] * (words.length);
-        }else if (gameMode.value == "fast") {
-            levelSeconds = lvls[levelName];
+        levelSeconds = lvls[levelName] * (words.length);
+    }else if (gameMode.value == "fast") {
+        levelSeconds = lvls[levelName];
         }
-    if (levelSelector.value == 0 || wordsGroup.value == 0 || gameMode.value == 0) {
-        theWord.innerHTML = 'Please select Difficulty,Game Mode and Words Group';
-        return;
+        if (levelSelector.value == 0 || wordsGroup.value == 0 || gameMode.value == 0) {
+            theWord.innerHTML = 'Please select Difficulty,Game Mode and Words Group';
+            return;
     }
     input.focus();
     genWords();
+    startButton.disabled = true;
 }
 function genWords() {
     if (levelName == "Hard") {
