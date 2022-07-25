@@ -41,7 +41,7 @@ body {
 }
 .options{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding: 30px 50px 0px;
 }
 .options select{
@@ -50,7 +50,20 @@ body {
     padding: 10px;
     font-size: 20px;
     cursor: pointer;
-    border-radius: 40px;
+    border: none;
+    outline: none;
+    transition: 0.3s;
+}
+.options select:hover{
+    background-color: #ccc;
+}
+#difficultys-select{
+    border-top-left-radius: 40px;
+    border-bottom-left-radius: 40px;
+}
+#Words-Type{
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
 }
 .message {
     background-color: white;
@@ -94,7 +107,6 @@ body {
     padding: 20px;
     background-color: red;
     font-weight: bold;
-    margin-left: 5px;
     transition: 0.2s;
     border-top-right-radius: 40px;
     border-bottom-right-radius: 40px;
@@ -135,7 +147,6 @@ body {
 }
 .upcoming-words {
     background-color: white;
-    margin: 15px 0;
     padding: 15px;
     display: flex;
     flex-wrap: wrap;
@@ -163,15 +174,16 @@ body {
 }
 .finish {
     font-weight: bold;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
-    padding: 15px;
+    padding: 10px;
+    font-family: sans-serif;
 }
 .finish .good {
-    color: #8bc34a;
+    color: #8bc34bbf;
 }
 .finish .bad {
-    color: red;
+    color: #9c0202bf;
 }
 footer {
     background-color: #2c4755;
