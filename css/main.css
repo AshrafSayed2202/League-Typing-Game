@@ -160,6 +160,9 @@ body {
     margin: 4px;
     padding: 10px;
     border-radius: 6px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 }
 .control {
     display: flex;
