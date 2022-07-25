@@ -77,9 +77,6 @@ startButton.onclick = function() {
 }
 
 function genWords() {
-    if(gameMode.value = "fast"){
-        levelSeconds = lvls[levelName];
-    }
     if (levelName == "Hard") {
         theWord.style.display = "none";
     }
@@ -107,6 +104,9 @@ function startPlay() {
                 input.value = '';
                 scoreGot.innerHTML++;
                 if (words.length > 0) {
+                    if(gameMode.value == "fast"){
+                        levelSeconds = lvls[levelName];
+                    }
                     genWords();
                 } else {
                     span.className = 'good';
